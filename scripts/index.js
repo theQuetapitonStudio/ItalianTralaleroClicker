@@ -27,7 +27,8 @@ let brainrots = [
     { id: 3, nome: "Tung Sahur", custo: 50, power: 3, img: "./imgs/tungtung.webp" },
     { id: 4, nome: "Bailarina Cappuchina", custo: 100, power: 4, img: "./imgs/bailarinacap.png" },
     { id: 5, nome: "Tripi Troppa", custo: 150, power: 5, img: "./imgs/tripi-troppa.png"},
-    //{ id: "X", nome: "Dragon Canneloni", custo: 500}
+    { id: 6, nome: "Expressona Signora", custo: 200, power: 6, img: "./imgs/Espressona-Signora.webp"},
+    { id: 7, nome: "Dragon Canneloni", custo: 500, power: 7, img: "./imgs/Dragon Canneloni.png"}
 ]
 
 let seuBrainrot = brainrots[0]
