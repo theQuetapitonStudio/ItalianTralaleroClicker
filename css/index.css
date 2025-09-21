@@ -1,7 +1,7 @@
 body {
     text-align: center;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #ffffff, #515dfd);
+    background: linear-gradient(135deg, #ffffff, #0011ff);
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
@@ -22,4 +22,17 @@ button {
 button:active {
     transform: scale(1.1);
     box-shadow: 1px 2px 4px rgba(0,0,0,0.2);
+}
+
+footer {
+    color: red;
+    font-size: 0.7rem;
+}
+
+#codes {
+    border-radius: 10px;
+    padding: 10px;
+    border: 0
+    ;
+    text-align: center;
 }
