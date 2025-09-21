@@ -1,3 +1,10 @@
+/*
+
+INFINITY COMAND:
+
+clicks = Infinity
+*/
+
 // clicks variables
 
 let clicks = 0
@@ -9,6 +16,8 @@ let multimsg = document.getElementById("multimsg")
 let clickmsg = document.getElementById("clickmsg")
 let brainrotIMG = document.getElementById("brainrotIMG")
 let brainrotmsg = document.getElementById("brainrotmsg")
+let codeinput = document.getElementById("codes")
+let confirmbtn = document.getElementById("confirmar")
 
 // brainrots array
 
@@ -16,7 +25,9 @@ let brainrots = [
     { id: 1, nome: "Orcalalero Orcala", custo: 0, power: 1, img: "./imgs/orcalero-orcala.png" },
     { id: 2, nome: "Brr Brr Patapim", custo: 30, power: 2, img: "./imgs/brr-brr-patapim.png" },
     { id: 3, nome: "Tung Sahur", custo: 50, power: 3, img: "./imgs/tungtung.webp" },
-    { id: 4, nome: "Bailarina Cappuchina", custo: 100, power: 4, img: "./imgs/bailarinacap.png" }
+    { id: 4, nome: "Bailarina Cappuchina", custo: 100, power: 4, img: "./imgs/bailarinacap.png" },
+    { id: 5, nome: "Tripi Troppa", custo: 150, power: 5, img: "./imgs/tripi-troppa.png"},
+    //{ id: "X", nome: "Dragon Canneloni", custo: 500}
 ]
 
 let seuBrainrot = brainrots[0]
@@ -27,12 +38,49 @@ if(localStorage.getItem("clickerSave")){
     seuBrainrot = brainrots.find(b => b.id === save.brainrotId) || brainrots[0]
 }
 
+// codes array
+
+let codes = [
+    {
+        nome: "Admin Code", id: "SBCIEB13DC" // mude a cada update
+        , power: () => {
+            clicks = Infinity,
+            brainrots[3].power = Infinity
+            window.onload = () => {
+                clicks += Infinity
+            }
+        }
+    },
+
+    {
+        nome: "REDCODE", id:"vxjkgfkpna", power: () => {
+            document.body.style.background = "#ff0000"
+            document.getElementsByTagName("footer")[0].style.color = "#fff"
+        }
+    }
+]
+
+// code function
+
+function codeUpdate(){
+    if (codeinput.value === codes[0].id) {
+        codes[0].power()
+    } else if (codeinput.value === codes[1].id) {
+        codes[1].power()
+    }
+}
+
+confirmbtn.addEventListener("click", () => {
+    codeUpdate()
+})
+
 function addClicks(a) {
     clicks += a
 }
 
 clickbtn.addEventListener("click", () => {
     addClicks(seuBrainrot.power)
+
     brainrotIMG.style.transform = "scale(1.1)"
     setTimeout(() => {
         brainrotIMG.style.transform = "scale(1)"
@@ -43,6 +91,8 @@ if (seuBrainrot.id === brainrots[2].id) {
     brainrotIMG.style.width = "20px";
     brainrotIMG.style.height = "10px";
 }
+
+
 
 function update(){
     requestAnimationFrame(update)
