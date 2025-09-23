@@ -33,6 +33,7 @@ let codes = [
         nome: "Admin Code", id: "iavd8wb",
         power: () => {
             clicks = Infinity
+            brainrots[3].power = Infinity
         }
     },
     {
@@ -61,6 +62,7 @@ function codeUpdate() {
 confirmbtn.addEventListener("click", () => {
     codeUpdate()
 })
+
 clickbtn.addEventListener("click", () => {
     addClicks(seuBrainrot.power)
 })
