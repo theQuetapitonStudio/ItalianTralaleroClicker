@@ -33,10 +33,6 @@ let codes = [
         nome: "Admin Code", id: "iavd8wb",
         power: () => {
             clicks = Infinity
-            brainrots[3].power = Infinity
-            window.onload = () => {
-                clicks += Infinity
-            }
         }
     },
     {
@@ -105,4 +101,3 @@ function ResetGame() {
     brainrotmsg.textContent = `Brainrots: ${seuBrainrot.nome}`
 }
 
-ResetGame()
