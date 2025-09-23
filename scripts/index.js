@@ -61,6 +61,9 @@ function codeUpdate() {
 confirmbtn.addEventListener("click", () => {
     codeUpdate()
 })
+clickbtn.addEventListener("click", () => {
+    addClicks(seuBrainrot.power)
+})
 
 function addClicks(a) {
     clicks += a
