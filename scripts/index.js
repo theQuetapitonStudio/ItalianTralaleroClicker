@@ -1,15 +1,4 @@
-/*
-
-INFINITY COMAND:
-
-clicks = Infinity
-*/
-
-// clicks variables
-
 let clicks = 0
-
-// html variables
 
 let clickbtn = document.getElementById("clickbtn")
 let multimsg = document.getElementById("multimsg")
@@ -19,16 +8,16 @@ let brainrotmsg = document.getElementById("brainrotmsg")
 let codeinput = document.getElementById("codes")
 let confirmbtn = document.getElementById("confirmar")
 
-// brainrots array
-
 let brainrots = [
     { id: 1, nome: "Orcalalero Orcala", custo: 0, power: 1, img: "./imgs/orcalero-orcala.png" },
-    { id: 2, nome: "Brr Brr Patapim", custo: 30, power: 2, img: "./imgs/brr-brr-patapim.png" },
-    { id: 3, nome: "Tung Sahur", custo: 50, power: 3, img: "./imgs/tungtung.webp" },
-    { id: 4, nome: "Bailarina Cappuchina", custo: 100, power: 4, img: "./imgs/bailarinacap.png" },
-    { id: 5, nome: "Tripi Troppa", custo: 150, power: 5, img: "./imgs/tripi-troppa.png"},
-    { id: 6, nome: "Expressona Signora", custo: 200, power: 6, img: "./imgs/Espressona-Signora.webp"},
-    { id: 7, nome: "Dragon Canneloni", custo: 500, power: 7, img: "./imgs/Dragon Canneloni.png"}
+    { id: 2, nome: "Brr Brr Patapim", custo: 50, power: 3, img: "./imgs/brr-brr-patapim.png" },
+    { id: 3, nome: "Tripi Troppa", custo: 150, power: 5, img: "./imgs/tripi-troppa.png"},
+    { id: 4, nome: "Tralalero Tralala", custo: 200, power: 8, img: "./imgs/tralalero-tralala.webp"},
+    { id: 5, nome: "Expressona Signora", custo: 330, power: 8, img: "./imgs/Espressona-Signora.webp"},
+    { id: 6, nome: "Capuchino Assasino" , custo: 390, power: 10, img: "./imgs/Capuchino.png" },
+    { id: 7, nome: "Chimpanzini Bananini" , custo: 430, power: 13, img: "./imgs/Chimpanzini-Bananini.png" },
+    { id: 8, nome: "Dragon Canneloni", custo: 500, power: 15, img: "./imgs/Dragon Canneloni.png"},
+    { id: 9, nome: "Chicleteira Bicicleteira" , custo: 800, power: 20, img: "./imgs/chicleteira.gif"}
 ]
 
 let seuBrainrot = brainrots[0]
@@ -39,35 +28,37 @@ if(localStorage.getItem("clickerSave")){
     seuBrainrot = brainrots.find(b => b.id === save.brainrotId) || brainrots[0]
 }
 
-// codes array
-
 let codes = [
     {
-        nome: "Admin Code", id: "SBCIEB13DC" // mude a cada update
-        , power: () => {
-            clicks = Infinity,
+        nome: "Admin Code", id: "iavd8wb",
+        power: () => {
+            clicks = Infinity
             brainrots[3].power = Infinity
             window.onload = () => {
                 clicks += Infinity
             }
         }
     },
-
     {
-        nome: "REDCODE", id:"vxjkgfkpna", power: () => {
-            document.body.style.background = "#ff0000"
-            document.getElementsByTagName("footer")[0].style.color = "#fff"
+        nome: "REDCODE", id:"red", power: () => {
+            document.body.style.background = "#ff6a6a"
         }
     }
 ]
 
-// code function
-
-function codeUpdate(){
-    if (codeinput.value === codes[0].id) {
-        codes[0].power()
-    } else if (codeinput.value === codes[1].id) {
-        codes[1].power()
+function codeUpdate() {
+    let code = codes.find(c => c.id === codeinput.value.toLowerCase())
+    if (code) {
+        code.power()
+        codeinput.value = ""
+    } else {
+        codeinput.style.background = "#ff6a6a"
+        codeinput.value = ""
+        codeinput.placeholder = "Codigo Invalido"
+        setTimeout(() => {
+            codeinput.style.background = "#fff"
+            codeinput.placeholder = "Digite um giftCode"
+        }, 200)
     }
 }
 
@@ -79,21 +70,11 @@ function addClicks(a) {
     clicks += a
 }
 
-clickbtn.addEventListener("click", () => {
-    addClicks(seuBrainrot.power)
-
-    brainrotIMG.style.transform = "scale(1.1)"
-    setTimeout(() => {
-        brainrotIMG.style.transform = "scale(1)"
-    }, 100)
-})
 
 if (seuBrainrot.id === brainrots[2].id) {
-    brainrotIMG.style.width = "20px";
-    brainrotIMG.style.height = "10px";
+    brainrotIMG.style.width = "20px"
+    brainrotIMG.style.height = "10px"
 }
-
-
 
 function update(){
     requestAnimationFrame(update)
@@ -113,3 +94,15 @@ function update(){
     }))
 }
 update()
+
+function ResetGame() {
+    localStorage.removeItem("clickerSave")
+    clicks = 0
+    seuBrainrot = brainrots[0]
+    clickmsg.textContent = `Clicks: ${clicks}`
+    multimsg.textContent = `Multiplicador: ${seuBrainrot.power}X`
+    brainrotIMG.src = seuBrainrot.img
+    brainrotmsg.textContent = `Brainrots: ${seuBrainrot.nome}`
+}
+
+ResetGame()
