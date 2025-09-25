@@ -59,12 +59,6 @@ let pets = [
   { nome: "Cachorro", preco: 500, power: () => { brainrots.forEach(b => b.power += 3) } }
 ]
 
-let lblockBrainrots = {
-    comum: [{
-        { id: 1, nome: "Tralalero Tralala",  power: 8, img: "./imgs/tralalero-tralala.webp"},
-        { id: 2, nome: "2X SORTE"}
-    }]
-}
 
 function petUpdate(code) {
   if (seusPets.length >= maxPets) return false
