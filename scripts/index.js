@@ -1,6 +1,6 @@
 let clicks = 0
 
-let maxPets = 4
+let maxPets = 20
 let seusPets = []
 
 let clickbtn = document.getElementById("clickbtn")
@@ -27,7 +27,8 @@ let brainrots = [
     { id: 11, nome: "Odin din din dun", custo: 2000, power: 35, img: "./imgs/Odin.png"},
     { id: 12, nome: "La Vaca Saturno Saturnita", custo: 2500, power: 37, img: "./imgs/La-Vaca-Saturno-Saturnita.png"},
     { id: 13, nome: "Matteo", custo: 3000, power: 42, img: "./imgs/Matteo.png"},
-
+    { id: 14, nome: "LA POTATO COMBINASION",custo: 4000, power: 45, img: "./imgs/THE-POTATO-COMBINASION.png"},
+    { id: 15, nome: "LA GRANDE COMBINASION", custo: 5000, power: 50, img: "./imgs/LA-GRANDE.webp"}
 ]
 
 let seuBrainrot = brainrots[0]
